@@ -51,30 +51,27 @@ class MetroAgi:
                     kuyruk.append((komsu, rota + [komsu]))
         return None
 
-
     def en_hizli_rota_bul(self, baslangic_id: str, hedef_id: str) -> Optional[Tuple[List[Istasyon], int]]:
-        """A* algoritması kullanarak en hızlı rotayı bulur
-        
-        Bu fonksiyonu tamamlayın:
-        1. Başlangıç ve hedef istasyonların varlığını kontrol edin
-        2. A* algoritmasını kullanarak en hızlı rotayı bulun
-        3. Rota bulunamazsa None, bulunursa (istasyon_listesi, toplam_sure) tuple'ı döndürün
-        4. Fonksiyonu tamamladıktan sonra, # TODO ve pass satırlarını kaldırın
-        
-        İpuçları:
-        - heapq modülünü kullanarak bir öncelik kuyruğu oluşturun, HINT: pq = [(0, id(baslangic), baslangic, [baslangic])]
-        - Ziyaret edilen istasyonları takip edin
-        - Her adımda toplam süreyi hesaplayın
-        - En düşük süreye sahip rotayı seçin
-        """
-        # TODO: Bu fonksiyonu tamamlayın
-        pass
         if baslangic_id not in self.istasyonlar or hedef_id not in self.istasyonlar:
             return None
-
+        
         baslangic = self.istasyonlar[baslangic_id]
         hedef = self.istasyonlar[hedef_id]
-        ziyaret_edildi = set()
+        
+        pq = [(0, id(baslangic), baslangic, [baslangic])] #min heap oluşturma
+        ziyaret_edilen = set()
+        
+        while pq:
+            toplam_sure, _, mevcut, rota = heapq.heappop(pq)
+
+            if mevcut == hedef:
+                return rota, toplam_sure 
+
+            for komsu, sure in mevcut.komsular:
+                if komsu not in ziyaret_edilen:
+                    ziyaret_edilen.add(komsu)
+                    heapq.heappush(pq, (toplam_sure + sure, id(komsu), komsu, rota + [komsu]))  # Kuyruğa ekle
+        return None
 
 # Örnek Kullanım
 if __name__ == "__main__":
