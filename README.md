@@ -2,20 +2,24 @@
 
 This project aims to develop a simulation that can find the **least transfer** and **fastest** routes in a metro network. **Graph data structure**, **BFS (Breadth-First Search)**, and **A* algorithm** are used for route optimization.
 
-##  Project Objectives
+## Project Objectives
 
 - Model the metro network using a **graph data structure**.
 - Find the least transfer route using the **BFS algorithm**.
 - Determine the fastest route using the **A* algorithm**.
 - Develop problem-solving skills for **real-world applications**.
 
-##  Technologies and Libraries Used
+## MetroSimulation_English.py Modifications
+
+The `MetroSimulation_English.py` file is based on the initially provided code with additional **control mechanisms** to enhance stability. Additionally, **all variable and function names** have been translated into English for better readability and consistency.
+
+## Technologies and Libraries Used
 
 - **Python 3**: The primary programming language for this project.
 - **Collections (deque, defaultdict)**: Used for queue structures and data modeling in BFS.
 - **Heapq**: Used for priority queue (min heap) management in the A* algorithm.
 
-##  Algorithm Workflow
+## Algorithm Workflow
 
 ### BFS (Finding the Least Transfer Route)
 BFS is a **graph traversal algorithm** used to find the **shortest path**. In this project, it is applied to determine **the least transfer route**.
@@ -32,7 +36,7 @@ The A* algorithm is a **priority queue-based algorithm** used to find the shorte
 - **Visited stations are tracked**.
 - **Total travel time is calculated to determine the fastest route**.
 
-##  Example Usage
+## Example Usage
 
 A sample metro network has been created:
 
@@ -54,17 +58,18 @@ Example scenarios:
    - Least transfer route: `Keçiören -> Gar -> Kızılay -> AŞTİ`
    - Fastest route (time): `Keçiören -> Gar -> Kızılay -> AŞTİ`
 
-##  Future Enhancements
+## Future Enhancements
 
 - **Support for larger metro networks**.
 - **Improved user experience with UI and visualization**.
 - **Integration with real-time traffic data**.
 
-##  Installation and Execution
+## Installation and Execution
 
 1. Download and extract the project files.
 2. Ensure Python 3 is installed.
 3. Run the following command in the terminal or command prompt:
 
    ```bash
-   python ZerrinAyaz_MetroSimulation.py
+   python MetroSimulation_English.py
+   ```
