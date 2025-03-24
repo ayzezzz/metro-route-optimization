@@ -71,5 +71,5 @@ Example scenarios:
 3. Run the following command in the terminal or command prompt:
 
    ```bash
-   python MetroSimulation_English.py
+   python ZerrinAyaz_MetroSimulation.py
    ```
