@@ -52,6 +52,25 @@ class MetroNetwork:
         return None
 
     def find_fastest_route(self, start_id: str, target_id: str) -> Optional[Tuple[List[Station], int]]:
+        if start_id not in self.stations or target_id not in self.stations:
+            return None
+        
+        start = self.stations[start_id]
+        target = self.stations[target_id]
+        
+        pq = [(0, id(start), start, [start])]  # Min heap
+        visited = set()
+        
+        while pq:
+            total_time, _, current, route = heapq.heappop(pq)
+
+            if current == target:
+                return route, total_time 
+
+            for neighbor, time in current.neighbors:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    heapq.heappush(pq, (total_time + time, id(neighbor), neighbor, route + [neighbor]))
         return None
 
 # Example Usage
